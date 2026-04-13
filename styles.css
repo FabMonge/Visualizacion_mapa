@@ -53,7 +53,7 @@ body, html {
 /* MAPA Y PEX */
 .leaflet-container { background: transparent !important; }
 .pex-globe-container { display: flex; flex-direction: column; align-items: center; cursor: pointer; }
-.pex-globe { width: 60px; height: 60px; border-radius: 50%; background-image: url('fotos/mundo.png'); background-size: 115%; background-position: center; border: 1px solid rgba(0, 0, 0, 0.15); box-shadow: 0 4px 8px rgba(0,0,0,0.2); margin-bottom: 5px; transition: background-color 0.4s ease; }
+.pex-globe { width: 60px; height: 60px; border-radius: 50%; background-image: url('https://fabmonge.github.io/Visualizacion_mapa/fotos/mundo.png'); background-size: 115%; background-position: center; border: 1px solid rgba(0, 0, 0, 0.15); box-shadow: 0 4px 8px rgba(0,0,0,0.2); margin-bottom: 5px; transition: background-color 0.4s ease; }
 .pex-label { font-weight: 900; font-size: 11px; color: #333; text-transform: uppercase; text-align: center; }
 
 /* POPUPS */

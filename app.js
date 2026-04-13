@@ -3,8 +3,8 @@ const esMovil = window.innerWidth <= 768;
 
 const CONFIG = {
     archivos: {
-        regiones: "Ganadores_elecciones.csv",
-        nacion: "Resumen_eleccion_nacion.csv"
+        regiones: "https://fabmonge.github.io/Visualizacion_mapa/Ganadores_elecciones.csv",
+        nacion: "https://fabmonge.github.io/Visualizacion_mapa/Resumen_eleccion_nacion.csv"
     },
     animacion: {
         velocidad: 3000
@@ -59,7 +59,7 @@ function onEachFeature(feature, layer) {
 
 function createCard(cand, anio) {
     if (!cand || !cand.nombre) return '';
-    const bgImage = `background-image: url('fotos/${cand.idFoto}_${anio}.png'), url('fotos/${cand.idFoto}.png'); background-size: cover; background-position: center center;`;
+    const bgImage = `background-image: url('https://fabmonge.github.io/Visualizacion_mapa/fotos/${cand.idFoto}_${anio}.png'), url('https://fabmonge.github.io/Visualizacion_mapa/fotos/${cand.idFoto}.png'); background-size: cover; background-position: center center;`;
     const dotHtml = cand.color ? `<div class="dot" style="background:${cand.color};"></div>` : '';
 
     return `
@@ -140,7 +140,7 @@ Promise.all([
     periodos = Object.keys(elecciones).sort();
     if (periodos.length === 0) return document.getElementById("year-display").innerText = "Sin datos 2da Vuelta";
 
-    fetch("mapa.geojson?v=" + Date.now()).then(res => res.json()).then(data => {
+    fetch("https://fabmonge.github.io/Visualizacion_mapa/mapa.geojson?v=" + Date.now()).then(res => res.json()).then(data => {
         geoJsonLayer = L.geoJSON(data, { style: f => getStyle(f.properties.NOMBDEP), onEachFeature: onEachFeature }).addTo(map);
 
         const callaoF = data.features.find(f => f.properties.NOMBDEP === "CALLAO");
