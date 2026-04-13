@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mapa Histórico - Segundas Vueltas - ECData</title>
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="viz-container">
+        <div class="controls-container ui-element">
+            <button id="restart-btn" class="control-btn" title="Volver al inicio">
+                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="23 4 23 10 17 10"></polyline>
+                    <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+                </svg>
+            </button>
+            <button id="prev-btn" class="control-btn" title="Elección anterior" disabled>⏮</button>
+            <button id="play-pause-btn" class="control-btn main-btn">⏸</button>
+            <button id="next-btn" class="control-btn" title="Siguiente elección" disabled>⏭</button>
+        </div>
+        
+        <div id="year-display" class="ui-element year-label">Cargando...</div>
+        <div id="year-note" class="year-context-note"></div>
+        
+        <div id="cand-1" class="candidate-big pos-left"></div>
+        <div id="cand-2" class="candidate-big pos-right"></div>
+        <div id="bottom-candidates" class="bottom-legend-container"></div>
+        
+        <div id="map"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

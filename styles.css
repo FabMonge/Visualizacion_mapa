@@ -1,0 +1,111 @@
+/* RESET PARA IFRAME */
+body, html {
+    margin: 0; 
+    padding: 0; 
+    background-color: #ffffff; 
+    font-family: 'Arial', sans-serif;
+    overflow: hidden; /* Clave para evitar scrollbars en el iframe */
+    height: 100vh;
+    width: 100vw;
+}
+
+.viz-container {
+    position: relative; width: 100%; height: 100%; 
+    background-color: transparent; overflow: hidden; 
+}
+
+#map { 
+    width: 100%; 
+    height: 100%; 
+    background-color: transparent !important; 
+    touch-action: none; /* Añade esta línea */
+}
+/* CONTROLES Y UI */
+.ui-element {
+    position: absolute; z-index: 3000; background: white;
+    border: 1.5px solid #000; color: #000; font-weight: 900; text-transform: uppercase;
+    box-shadow: 3px 3px 0px rgba(0,0,0,0.1);
+}
+.controls-container {
+    top: 20px; left: 19%; display: flex; padding: 0; 
+    border-radius: 4px; overflow: hidden;
+}
+.control-btn {
+    background: white; border: none; border-right: 1px solid #ccc; 
+    padding: 8px 12px; font-size: 14px; cursor: pointer;
+    transition: background-color 0.2s; color: #000;
+}
+.control-btn:last-child { border-right: none; }
+.control-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+.control-btn.main-btn { font-weight: 900; width: 45px; background-color: #333; color: #fff; }
+
+.year-label { top: 20px; left: 50%; transform: translateX(-50%); padding: 10px 20px; font-size: 18px; }
+
+/* CANDIDATOS */
+.candidate-big { position: absolute; z-index: 2500; top: 50%; transform: translateY(-50%); width: 250px; text-align: center; display: flex; flex-direction: column; align-items: center; }
+.pos-left { left: 10%; } .pos-right { right: 10%; }
+.candidate-big .photo { width: 150px; height: 150px; border-radius: 50%; border: 1.5px solid #d1d1d1; box-shadow: 0 6px 12px rgba(0,0,0,0.1); margin-bottom: 12px; background-color: #fff; }
+.cand-name { font-weight: 900; font-size: 22px; text-transform: uppercase; line-height: 1; }
+.cand-party { font-size: 11px; color: #666; text-transform: uppercase; margin-bottom: 8px;}
+.cand-pct { font-weight: 900; font-size: 28px; display: flex; align-items: center; }
+.dot { width: 16px; height: 16px; margin: 0 12px; border-radius: 3px; }
+
+/* MAPA Y PEX */
+.leaflet-container { background: transparent !important; }
+.pex-globe-container { display: flex; flex-direction: column; align-items: center; cursor: pointer; }
+.pex-globe { width: 60px; height: 60px; border-radius: 50%; background-image: url('fotos/mundo.png'); background-size: 115%; background-position: center; border: 1px solid rgba(0, 0, 0, 0.15); box-shadow: 0 4px 8px rgba(0,0,0,0.2); margin-bottom: 5px; transition: background-color 0.4s ease; }
+.pex-label { font-weight: 900; font-size: 11px; color: #333; text-transform: uppercase; text-align: center; }
+
+/* POPUPS */
+.leaflet-popup-content-wrapper { border-radius: 0px; border: 1px solid #000; padding: 2px; }
+.popup-region { font-weight: 900; text-transform: uppercase; font-size: 14px; border-bottom: 1px solid #eee; margin-bottom: 5px; padding-bottom: 3px; }
+.popup-party { font-size: 10px; color: #666; margin-bottom: 2px; }
+.popup-pct { font-size: 18px; font-weight: 900; }
+.popup-pct-label { font-size: 10px; font-weight: 400; color: #444; }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .controls-container { top: 10px; left: 50%; transform: translateX(-50%) scale(0.80); }
+    .year-label { top: 55px; font-size: 14px; }
+    .candidate-big { width: 100px; top: auto; bottom: 20px; transform: translateY(0); }
+    .pos-left { left: 5%; } .pos-right { right: 5%; }
+    .candidate-big .photo { width: 70px; height: 70px; margin-bottom: 5px; }
+    .cand-name { font-size: 11px; }
+    .cand-party { display: none; }
+    .cand-pct { font-size: 16px; }
+    .dot { width: 10px; height: 10px; margin: 0 5px 0 0; }
+    .pex-globe { width: 45px; height: 45px; }
+    .pex-label { font-size: 9px; }
+}
+
+/* Añade esto para forzar la estructura de columna */
+.cand-info-container { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+}
+
+/* Ajustes finos para los textos */
+.cand-name { 
+    font-weight: 900; 
+    font-size: 22px; 
+    text-transform: uppercase; 
+    line-height: 1.1; 
+    margin-bottom: 4px; 
+}
+
+.cand-party { 
+    font-size: 11px; 
+    color: #666; 
+    text-transform: uppercase; 
+    margin-bottom: 8px;
+}
+
+.cand-pct { 
+    font-weight: 900; 
+    font-size: 28px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; /* Asegura que el cuadrado de color y el número se centren */
+}
